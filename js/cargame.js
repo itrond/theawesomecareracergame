@@ -7,7 +7,7 @@ var roadAndGutter = new Path(
     [1000, 150],
     [800, 100],
     [180, 100],
-    [190, 300]
+    [190, 400]
 );
 roadAndGutter.strokeColor = "black";
 roadAndGutter.strokeWidth = "70";
@@ -86,8 +86,27 @@ carVector.length = 1;
 // On each frame...
 function onFrame(event) {
 
+    if (Key.isDown("left")) {
+        carVector = carVector.rotate(-1);
+        car.rotate(-1);
+    }
+    if (Key.isDown("right")) {
+
+        carVector = carVector.rotate(1);
+        car.rotate(1);
+    }
+    if ((Key.isDown("up") || Key.isDown("q"))
+        && carVector.length < MAX_SPEED)
+        carVector.length += 0.1;
+    if ((Key.isDown("down") || Key.isDown("a"))
+        && carVector.length > 1)
+        carVector.length -= 0.1;
+
+
 
     car.position += carVector;
+
+
 
     // ...calculate the time of the animation between 0 and 1... 
     var slowness = 2000;
@@ -118,25 +137,5 @@ function moveCompetior(time) {
 
 }
 
-function onKeyDown(event) {
-    if (event.key == "left") {
-        carVector = carVector.rotate(-5);
-        car.rotate(-5);
-    }
-    if (event.key == "right") {
-
-        carVector = carVector.rotate(5);
-        car.rotate(5);
-    }
-    if ((event.key == "up" || event.key == "q")
-        && carVector.length < MAX_SPEED)
-        carVector.length++;
-    if (event.key == "down" || event.key == "a")
-        carVector.length--;
-
-    //console.log(carVector.length);
-    //console.log(carVector.angle);
-
-}
 
 
