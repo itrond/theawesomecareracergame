@@ -1,6 +1,9 @@
 
 var MAX_SPEED = 3;
 
+var backGround = new Path.Rectangle(0, 0, 1200, 800);
+backGround.fillColor = "green";
+
 var roadAndGutter = new Path(
     [100, 700],
     [1050, 600],
