@@ -2,9 +2,6 @@
 
 Maybe the best car racing game, ever...
 
-## Made with paper.js
-
-[https://paperjs.org](Paperjs)
 
 ## How to play
 
@@ -18,3 +15,6 @@ Use the arrow keys.
 
 
 ![Alt Text](cargame.gif)
+## Made with paper.js
+
+Try [Paperjs](https://paperjs.org) if you want to make something awesome 
