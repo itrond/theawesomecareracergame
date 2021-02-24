@@ -109,12 +109,20 @@ function onFrame(event) {
 
     car.position += carVector;
 
+    var hitresult = road.hitTest(car.position);
+
+    if (!hitresult) {
+
+        carVector.length = 1;
+
+    }
+
 
 
     // ...calculate the time of the animation between 0 and 1... 
     var slowness = 2000;
     var time = event.count % slowness / slowness;
-    // ...and move the boat.
+    // ...and move the car.
     moveCompetior(time);
 }
 
@@ -124,21 +132,17 @@ function onFrame(event) {
 function moveCompetior(time) {
     // Calculate the offset relatively to the road length.
     var offset = time * road.length;
-    // Get point to position the boat.
+    // Get point to position the car.
     var point = road.getPointAt(offset);
     // Get tangent vector at this point.
     var tangent = road.getTangentAt(offset);
-    // Move boat.
+    // Move car.
     competition.position = point; // new Point(300, 200); // point;
-    // Rotate boat.
+    // Rotate car
     competition.rotation = tangent.angle; //keyAngle; // tangent.angle;
 
 
-    //    updateBoat(boat.rotation);
 
 
 
 }
-
-
-
